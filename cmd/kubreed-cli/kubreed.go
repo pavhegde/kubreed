@@ -116,8 +116,8 @@ func main() {
 		time.Sleep(5 * time.Second)
 
 		for j := 0; j < *deps; j++ {
-			svcName := fmt.Sprintf("svc-%d", j)
-			dep := fmt.Sprintf("dep-%d", j)
+			svcName := fmt.Sprintf("perf-%d", j)
+			dep := fmt.Sprintf("perf-%d", j)
 			labels := map[string]string{
 				"app": dep,
 			}
@@ -133,7 +133,7 @@ func main() {
 					remoteService := rand.Intn(*deps)
 					if remoteService != j {
 						remoteServices = append(remoteServices,
-							fmt.Sprintf("svc-%d", remoteService))
+							fmt.Sprintf("perf-%d", remoteService))
 						break
 					}
 					// loop until we get a remoteService that is not self
